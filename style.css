@@ -1,376 +1,224 @@
-/* =========================================================
-   IMAGE SLIDER LIBRARY
-   ========================================================= */
+/* ==============================
+   BASIC PAGE STYLES
+   ============================== */
 
-
-/* ---------- RESET ---------- */
-
-* {
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-/* ---------- BODY ---------- */
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-
+    font-family: Arial, sans-serif;
     background: #f4f6f8;
-
     color: #222;
-
-    overflow-x: hidden;
 }
 
-
-/* ---------- MAIN CONTAINER ---------- */
-
-.page-container {
+.container {
     width: 92%;
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    padding: 50px 0;
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 0;
 }
 
 
-/* ---------- HEADER ---------- */
+/* ==============================
+   HEADER
+   ============================== */
 
-.page-header {
+header {
     text-align: center;
-
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
-.page-header h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-
+header h1 {
+    font-size: 42px;
     margin-bottom: 10px;
 }
 
-.page-header p {
+header p {
     color: #555;
-
-    font-size: 1rem;
 }
 
 
-/* ---------- SLIDER ---------- */
+/* ==============================
+   SLIDER
+   ============================== */
 
 .slider {
     position: relative;
-
     width: 100%;
 }
 
-
-/* ---------- VIEWPORT ---------- */
-
-.slider-viewport {
+.viewport {
     width: 100%;
-
     aspect-ratio: 16 / 9;
-
-    /*
-        IMPORTANT:
-        Only one slide should be visible.
-    */
     overflow: hidden;
-
-    border-radius: 16px;
-
-    background: #ddd;
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px #bbb;
 }
 
-
-/* ---------- TRACK ---------- */
-
-.slider-track {
+.track {
     display: flex;
-
     width: 100%;
-
     height: 100%;
 
-    /*
-        Smooth horizontal movement.
-    */
+    /* Smooth horizontal movement */
     transition: transform 0.5s ease-in-out;
 
-    /*
-        Helps optimize transform animation.
-    */
+    /* Optimizes transform animation */
     will-change: transform;
 }
 
-
-/* ---------- SLIDES ---------- */
-
 .slide {
-    /*
-        Every slide takes exactly 100% width.
-    */
-    flex: 0 0 100%;
-
     min-width: 100%;
-
-    width: 100%;
-
     height: 100%;
 }
 
-
-/* ---------- IMAGES ---------- */
-
 .slide img {
     display: block;
-
     width: 100%;
-
     height: 100%;
 
-    /*
-        Keeps image proportions while filling
-        the slider.
-    */
+    /* Prevents image distortion */
     object-fit: cover;
 }
 
 
-/* ---------- NAVIGATION BUTTONS ---------- */
+/* ==============================
+   ARROW BUTTONS
+   ============================== */
 
-.slider-button {
+.arrow {
     position: absolute;
-
     top: 50%;
-
-    /*
-        Center button vertically.
-    */
     transform: translateY(-50%);
 
     width: 50px;
-
     height: 50px;
 
     border: none;
-
     border-radius: 50%;
 
-    background: rgba(0, 0, 0, 0.65);
-
+    background: rgba(0, 0, 0, 0.7);
     color: white;
 
     font-size: 28px;
-
-    font-weight: bold;
-
     cursor: pointer;
+    z-index: 5;
+}
 
-    z-index: 20;
+#prev {
+    left: 15px;
+}
 
+#next {
+    right: 15px;
+}
+
+.arrow:hover {
+    background: black;
+}
+
+
+/* ==============================
+   NAVIGATION DOTS
+   ============================== */
+
+.dots {
     display: flex;
-
-    align-items: center;
-
     justify-content: center;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
-}
-
-
-/* Previous button */
-
-.previous-button {
-    left: 20px;
-}
-
-
-/* Next button */
-
-.next-button {
-    right: 20px;
-}
-
-
-/* Hover effect */
-
-.slider-button:hover {
-    background: rgba(0, 0, 0, 0.9);
-
-    transform:
-        translateY(-50%)
-        scale(1.08);
-}
-
-
-/* ---------- DOTS ---------- */
-
-.slider-dots {
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
     gap: 10px;
-
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
-
-/* Individual dot */
-
-.slider-dot {
-    width: 14px;
-
-    height: 14px;
-
-    padding: 0;
+.dot {
+    width: 13px;
+    height: 13px;
 
     border: none;
-
     border-radius: 50%;
 
     background: #bbb;
-
     cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
 }
 
-
-/* Dot hover */
-
-.slider-dot:hover {
-    transform: scale(1.15);
-}
-
-
-/* Active dot */
-
-.slider-dot.active {
+.dot.active {
     background: #222;
-
     transform: scale(1.25);
 }
 
 
-/* ---------- INFORMATION ---------- */
+/* ==============================
+   INFORMATION
+   ============================== */
 
 .information {
-    margin-top: 50px;
-
     text-align: center;
+    margin-top: 40px;
 }
 
 .information h2 {
-    margin-bottom: 15px;
-
-    font-size: 2rem;
+    margin-bottom: 12px;
 }
 
 .information > p {
-    max-width: 850px;
-
-    margin: 0 auto 30px;
-
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.6;
     color: #555;
-
-    line-height: 1.7;
 }
-
-
-/* ---------- FEATURE CARDS ---------- */
 
 .features {
     display: grid;
-
     grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(200px, 1fr)
-        );
-
+        repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
+    margin-top: 25px;
 }
 
-
-.feature-card {
+.feature {
     background: white;
-
-    padding: 25px;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 5px 20px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px #ddd;
 }
 
-
-.feature-card h3 {
-    margin-bottom: 10px;
+.feature h3 {
+    margin-bottom: 8px;
 }
 
-
-.feature-card p {
+.feature p {
     color: #666;
-
-    line-height: 1.6;
 }
 
 
-/* ---------- MOBILE ---------- */
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
 
 @media (max-width: 600px) {
 
-    .page-container {
+    .container {
         width: 94%;
-
-        padding: 30px 0;
+        padding: 25px 0;
     }
 
+    header h1 {
+        font-size: 30px;
+    }
 
-    .slider-button {
-        width: 42px;
-
-        height: 42px;
-
+    .arrow {
+        width: 40px;
+        height: 40px;
         font-size: 22px;
     }
 
-
-    .previous-button {
-        left: 10px;
+    #prev {
+        left: 8px;
     }
 
-
-    .next-button {
-        right: 10px;
-    }
-
-
-    .information {
-        margin-top: 35px;
-    }
-}
-
-
-/* ---------- REDUCED MOTION ---------- */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .slider-track {
-        transition: none;
+    #next {
+        right: 8px;
     }
 }
