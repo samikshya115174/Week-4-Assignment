@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Slider Library</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page-container">
+
+        <!-- Page heading -->
+        <header class="page-header">
+            <h1>Image Slider Library</h1>
+
+            <p>
+                A responsive image slider built with HTML,
+                CSS, and vanilla JavaScript.
+            </p>
+        </header>
+
+
+        <!-- Image Slider -->
+        <section class="slider" aria-label="Image Slider">
+
+            <!-- Previous Button -->
+            <button
+                type="button"
+                class="slider-button previous-button"
+                id="previousButton"
+                aria-label="Previous image">
+                &#10094;
+            </button>
+
+
+            <!-- Slider Viewport -->
+            <div class="slider-viewport">
+
+                <!-- Slider Track -->
+                <div
+                    class="slider-track"
+                    id="sliderTrack">
+
+                    <!-- Slide 1 -->
+                    <article class="slide">
+                        <img
+                            src="Image/images1.jpeg"
+                            alt="Slider image 1">
+                    </article>
+
+                    <!-- Slide 2 -->
+                    <article class="slide">
+                        <img
+                            src="Image/images2.jpeg"
+                            alt="Slider image 2">
+                    </article>
+
+                    <!-- Slide 3 -->
+                    <article class="slide">
+                        <img
+                            src="Image/images3.jpeg"
+                            alt="Slider image 3">
+                    </article>
+
+                    <!-- Slide 4 -->
+                    <article class="slide">
+                        <img
+                            src="Image/images4.jpeg"
+                            alt="Slider image 4">
+                    </article>
+
+                </div>
+
+            </div>
+
+
+            <!-- Next Button -->
+            <button
+                type="button"
+                class="slider-button next-button"
+                id="nextButton"
+                aria-label="Next image">
+                &#10095;
+            </button>
+
+
+            <!-- Navigation dots are created by JavaScript -->
+            <div
+                class="slider-dots"
+                id="sliderDots"
+                aria-label="Slide navigation">
+            </div>
+
+        </section>
+
+
+        <!-- Information Section -->
+        <section class="information">
+
+            <h2>About This Slider</h2>
+
+            <p>
+                This image slider is developed using vanilla
+                JavaScript without third-party carousel libraries.
+                It uses CSS transforms and transitions to create
+                smooth horizontal image movement.
+            </p>
+
+
+            <div class="features">
+
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <h3>Responsive</h3>
+
+                    <p>
+                        The slider automatically adapts to
+                        different screen sizes and devices.
+                    </p>
+                </div>
+
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <h3>Infinite Loop</h3>
+
+                    <p>
+                        Users can continuously move through
+                        all images without reaching an endpoint.
+                    </p>
+                </div>
+
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <h3>Interactive</h3>
+
+                    <p>
+                        Users can navigate using the previous
+                        and next buttons or navigation dots.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="slider.js"></script>
+
+</body>
+
+</html>

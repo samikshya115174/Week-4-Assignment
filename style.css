@@ -1,0 +1,376 @@
+/* =========================================================
+   IMAGE SLIDER LIBRARY
+   ========================================================= */
+
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ---------- BODY ---------- */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4f6f8;
+
+    color: #222;
+
+    overflow-x: hidden;
+}
+
+
+/* ---------- MAIN CONTAINER ---------- */
+
+.page-container {
+    width: 92%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 50px 0;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.page-header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: #555;
+
+    font-size: 1rem;
+}
+
+
+/* ---------- SLIDER ---------- */
+
+.slider {
+    position: relative;
+
+    width: 100%;
+}
+
+
+/* ---------- VIEWPORT ---------- */
+
+.slider-viewport {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    /*
+        IMPORTANT:
+        Only one slide should be visible.
+    */
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #ddd;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ---------- TRACK ---------- */
+
+.slider-track {
+    display: flex;
+
+    width: 100%;
+
+    height: 100%;
+
+    /*
+        Smooth horizontal movement.
+    */
+    transition: transform 0.5s ease-in-out;
+
+    /*
+        Helps optimize transform animation.
+    */
+    will-change: transform;
+}
+
+
+/* ---------- SLIDES ---------- */
+
+.slide {
+    /*
+        Every slide takes exactly 100% width.
+    */
+    flex: 0 0 100%;
+
+    min-width: 100%;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+/* ---------- IMAGES ---------- */
+
+.slide img {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    /*
+        Keeps image proportions while filling
+        the slider.
+    */
+    object-fit: cover;
+}
+
+
+/* ---------- NAVIGATION BUTTONS ---------- */
+
+.slider-button {
+    position: absolute;
+
+    top: 50%;
+
+    /*
+        Center button vertically.
+    */
+    transform: translateY(-50%);
+
+    width: 50px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Previous button */
+
+.previous-button {
+    left: 20px;
+}
+
+
+/* Next button */
+
+.next-button {
+    right: 20px;
+}
+
+
+/* Hover effect */
+
+.slider-button:hover {
+    background: rgba(0, 0, 0, 0.9);
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+/* ---------- DOTS ---------- */
+
+.slider-dots {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+/* Individual dot */
+
+.slider-dot {
+    width: 14px;
+
+    height: 14px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #bbb;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Dot hover */
+
+.slider-dot:hover {
+    transform: scale(1.15);
+}
+
+
+/* Active dot */
+
+.slider-dot.active {
+    background: #222;
+
+    transform: scale(1.25);
+}
+
+
+/* ---------- INFORMATION ---------- */
+
+.information {
+    margin-top: 50px;
+
+    text-align: center;
+}
+
+.information h2 {
+    margin-bottom: 15px;
+
+    font-size: 2rem;
+}
+
+.information > p {
+    max-width: 850px;
+
+    margin: 0 auto 30px;
+
+    color: #555;
+
+    line-height: 1.7;
+}
+
+
+/* ---------- FEATURE CARDS ---------- */
+
+.features {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px, 1fr)
+        );
+
+    gap: 20px;
+}
+
+
+.feature-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+.feature-card h3 {
+    margin-bottom: 10px;
+}
+
+
+.feature-card p {
+    color: #666;
+
+    line-height: 1.6;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+
+    .page-container {
+        width: 94%;
+
+        padding: 30px 0;
+    }
+
+
+    .slider-button {
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 22px;
+    }
+
+
+    .previous-button {
+        left: 10px;
+    }
+
+
+    .next-button {
+        right: 10px;
+    }
+
+
+    .information {
+        margin-top: 35px;
+    }
+}
+
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .slider-track {
+        transition: none;
+    }
+}
